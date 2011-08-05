@@ -38,14 +38,15 @@ THE SOFTWARE.
 
 class GoogleReaderSubscriptions extends WP_Widget 
 {
-
     var $cache_key = 'wp-google-reader-subcriptions';
 
     function GoogleReaderSubscriptions() 
     {
+        load_plugin_textdomain('grsub', false, basename(dirname( __FILE__ )) . '/languages');
+
         $widget_options = array(
-            'description' => __('Display Google Reader subscriptions in sidebar.'), 
-            'grsub',
+            'description' => __('Display Google Reader subscriptions in sidebar.', 'grsub'), 
+            'classname' => 'grsub',
         );
 
         parent::WP_Widget('grsub', 'Google Reader Subscriptions', $widget_options);
